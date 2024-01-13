@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+
+<h1 class="new-post">Create a new post</h1>
+
+<div class="new-post-form">
+  <%= form_for @post do |post| %>
+    <%= post.label :"Upload photo to post", style: "display: block" %> <br>
+    <br>
+    <%= post.file_field :post_image %> <br>
+    <br>
+    <%= post.label :"Upload caption to your post", style: "display: block" %> <br>
+    <br>
+    <%= post.text_field :caption %> <br>
+    <br>
+    <%= post.button "Create New Post", type: "submit" %>
+  <% end %>
+</div>
+
+<br>
+
+<div class="back-posts-btn">
+  <%= button_to "Back to posts", posts_path, method: :get %>
+</div>

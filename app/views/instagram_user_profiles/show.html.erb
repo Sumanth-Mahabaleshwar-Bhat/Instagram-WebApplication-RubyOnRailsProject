@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+<br>
+<br>
+<h1>Instagram User Profile</h1>
+<br>
+<br>
+<div class="userProfile-container">
+  <div class="profile">
+    <div class="profileImage">
+      <p>Profile Image : </p>
+      <%= image_tag url_for(@instagram_user_profile.avatar), size: "360x360" %>
+      <br>
+      <div class="profile-bio">
+        <p>User Profile Bio : </p>
+        <p><%= @instagram_user_profile.bio %></p>
+      </div>
+    </div>
+    <div class="edit-UserProfile">
+      <%= button_to "Edit Profile", edit_instagram_user_profile_path(@instagram_user_profile) %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this instagram user profile", edit_instagram_user_profile_path(@instagram_user_profile) %> |
+  <%= link_to "Back to instagram user profile", instagram_user_profiles_path %>
+  <%= button_to "Delete this instagram user profile", @instagram_user_profile, method: :delete %>
+</div>

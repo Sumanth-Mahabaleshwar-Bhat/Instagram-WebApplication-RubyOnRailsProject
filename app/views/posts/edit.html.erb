@@ -1,0 +1,22 @@
+<h1>Editing post</h1>
+
+<div class="edit-post-form">
+  <%= form_for @post do |post| %>
+    <%= post.label :"Edit image of the post" %><br>
+    <br>
+    <%= post.file_field :post_image %><br>
+    <br>
+    <%= post.label :"Edit caption of the post" %><br>
+    <br>
+    <%= post.text_field :caption %><br>
+    <br>
+    <%= post.button "Update Post", type: "submit" %>
+  <% end %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Show this post", @post %> |
+  <%= link_to "Back to posts", posts_path %>
+</div>

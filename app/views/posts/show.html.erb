@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Showing User Posts</h1>
+<div class="user-post">
+  <div class="post-image">
+    <% if @post.post_image.attached? %>
+      <%= image_tag url_for(@post.post_image), size: "360x360" %>
+    <% end %>
+  </div>
+  <div class="post-caption">
+    Caption :
+    <%= @post.caption %>
+  </div>
+  <div>
+    <%= "Post created (#{time_ago_in_words @post.created_at} ago)" %>
+    <br>
+    <%= "Post updated (#{time_ago_in_words @post.updated_at} ago)" %>
+  </div>
+</div>
+
+<div class="comment-on-post">
+  <p>Comment : </p>
+</div>
+
+<div id="comments">
+  <%= render @post.comments %>
+</div>
+
+<div class="comment-section">
+  <%= form_for([@post, @post.comments.new]) do |form| %>
+    <div>
+      <%= form.label :'Comment : ' %> <br>
+      <br>
+      <%= form.text_field :comment_text %> <br>
+      <br>
+    </div>
+    <div class="add-comment-submit-btn">
+      <%= form.button 'Add comment to the Post', type: "submit" %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, :data => { :confirm => 'Are you sure ?' },method: :delete %>
+</div>

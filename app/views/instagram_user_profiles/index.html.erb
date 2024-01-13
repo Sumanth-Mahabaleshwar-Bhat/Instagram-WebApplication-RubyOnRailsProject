@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<br>
+<br>
+<br>
+<h1 class="">Instagram user profile</h1>
+
+<div id="instagram_user_profiles">
+  <% if @instagram_user_profiles.present? %>
+    <% @instagram_user_profiles.each do |instagram_user_profile| %>
+      <div class="userProfile-container">
+        <div class="profile">
+          <div class="profileImage">
+            <p>Profile Image : </p>
+            <%= image_tag url_for(instagram_user_profile.avatar), size: "360x360" %>
+            <br>
+            <div class="profile-bio">
+              <p>User Profile Bio : </p>
+              <p><%= instagram_user_profile.bio %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        <%= link_to "Show this instagram user profile", instagram_user_profile %>
+      </p>
+    <% end %>
+  <% else %>
+    <%= link_to "New instagram user profile", new_instagram_user_profile_path %>
+  <% end %>
+</div>
+
+<%= button_to "Back to Posts", posts_path, method: :get %>

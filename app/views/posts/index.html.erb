@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+<br>
+<br>
+<h1 class="post-header">Posts</h1>
+
+<div class="user-profile-container">
+  <div class="user-profile">
+    <%= button_to 'User Profile', instagram_user_profiles_path, method: :get %>
+  </div>
+</div>
+
+<div class="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <%= "Post created (#{time_ago_in_words post.created_at} ago)" %>
+    <br>
+    <%= "Post updated (#{time_ago_in_words post.updated_at} ago)" %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+
+<div class="new-post-btn">
+  <%= link_to "New post", new_post_path %>
+</div>

@@ -1,0 +1,24 @@
+<h1>Editing instagram user profile</h1>
+
+<h1>Editing post</h1>
+
+<div class="edit-post-form">
+  <%= form_for @instagram_user_profile do |user_profile| %>
+    <%= user_profile.label :"Edit profile image of the user" %><br>
+    <br>
+    <%= user_profile.file_field :avatar %><br>
+    <br>
+    <%= user_profile.label :"Edit bio of the user" %><br>
+    <br>
+    <%= user_profile.text_field :bio %><br>
+    <br>
+    <%= user_profile.button "Update User Profile", type: "submit" %>
+  <% end %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Show this instagram user profile", @instagram_user_profile %> |
+  <%= link_to "Back to instagram user profiles", instagram_user_profiles_path %>
+</div>

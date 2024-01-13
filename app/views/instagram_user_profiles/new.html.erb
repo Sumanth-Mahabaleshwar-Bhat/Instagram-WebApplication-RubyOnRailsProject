@@ -1,0 +1,19 @@
+<h1>New user profile</h1>
+
+<%= form_for @instagram_user_profile do |user_profile| %>
+  <%= user_profile.label :"Upload your profile photo" %> <br>
+  <br>
+  <%= user_profile.file_field :avatar %> <br>
+  <br>
+  <%= user_profile.label :"Update your bio" %> <br>
+  <br>
+  <%= user_profile.text_field :bio %> <br>
+  <br>
+  <%= user_profile.button "Create User Profile", type: "submit" %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to user profiles", instagram_user_profiles_path %>
+</div>

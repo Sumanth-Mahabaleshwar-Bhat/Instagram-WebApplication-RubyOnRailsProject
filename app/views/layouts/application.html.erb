@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstagramWebApplication</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+
+  <body>
+    <div class="navigation">
+      <div class="instagram-logo">
+        <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="">
+      </div>
+      <div class="navigation-search-container">
+        <input class="search-field" type="text" placeholder="Search">
+        <div class="search-container">
+          <div class="search-container-box">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="current-user">
+        <% if logged_in? %>
+          <div class="current-user-text">
+            Logged in as <%= current_user.user_name %>
+          </div>
+          <div class="sign-out">
+            <%= link_to 'Logout', logout_path, method: :delete %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% flash.each do |key, value| %>
+      <p id='<%= key %>'><%= value %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
